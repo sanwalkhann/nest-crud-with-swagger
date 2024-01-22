@@ -48,7 +48,7 @@ export class UserController {
   @ApiBody({ type: UpdateUserDto })
   @ApiResponse({ status: 200, description: 'User updated', type: User })
   @ApiResponse({ status: 404, description: 'User not found' })
-  async updateContact(
+  async updateUser(
     @Param('id') id: string,
     @Body() contact: UpdateUserDto,
   ): Promise<User> {
@@ -60,7 +60,7 @@ export class UserController {
   @ApiParam({ name: 'id', description: 'User ID' })
   @ApiResponse({ status: 204, description: 'User deleted' })
   @ApiResponse({ status: 404, description: 'User not found' })
-  async deleteContact(@Param('id') id: string): Promise<void> {
+  async deleteUser(@Param('id') id: string): Promise<void> {
     await this.userService.deleteById(id);
   }
 }
